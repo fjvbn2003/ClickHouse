@@ -1,3 +1,6 @@
+-- Tags: long
+-- long: joins 2M rows, up to 2 minutes on TSan, and parallel flaky-check runs push that past the time limit.
+
 -- https://github.com/ClickHouse/ClickHouse/issues/122167
 -- For `ON left.a = right.a AND left.b <=> right.b`, the runtime filter is built on `a` only,
 -- but the hash table statistics count distinct `(a, b)` pairs, which are many more than the distinct values of `a`.
